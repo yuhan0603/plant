@@ -22,7 +22,7 @@ position: fixed; top: 0; left: 0;
 display: none;
 }
 /* 自訂文字的外層 DIV */
-#custom-text-1 {
+#custom-text {
 display: none; /* 預設隱藏 */
 position: fixed;
 top: 20px; /* 距離頂部 20px */
@@ -36,26 +36,13 @@ border-radius: 0.3em;
 z-index: 9999;
 pointer-events: none;}
 
-#custom-text-2 {
-display: none; /* 預設隱藏 */
-position: fixed;
-top: 20px; /* 距離頂部 20px */
-left: 50%;
-transform: translateX(-50%);
-background: rgba(0, 0, 0, 0.6);
-color: white;
-padding: 0.5em 1em;
-font-size: 1.5em;
-border-radius: 0.3em;
-z-index: 9999;
-pointer-events: none;}
+
 
 </style>
 </head>
 <body>
 <!-- 1. HTML 裡先放一個自訂的 DIV -->
-<div id="custom-text-1">台灣二葉松（學名：Pinus taiwanensis）</div>
-<div id="custom-text-2">山胡椒</div>
+<div id="custom-text">台灣二葉松（學名：Pinus taiwanensis）</div>
 <!-- 2. 你的 AR 場景 -->
 <!-- 標記副檔名須為.mind -->
 <a-scene
