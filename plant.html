@@ -53,7 +53,7 @@ overflow: hidden;
 <!-- 標記副檔名須為.mind -->
 <a-scene
 mindar-image="
-imageTargetSrc: Pinus taiwanensis.mind;
+imageTargetSrc: targets.mind;
 autoStart: true;
 showStats: false;
 uiLoading: no;
@@ -94,12 +94,11 @@ customDiv.style.display = "none";
 <!-- A-Frame 場景根元素 -->
 <!-- mindar-image：設定 AR 標記檔案路徑、自動開始與 UI 顯示 -->
 <a-scene
-mindar-image="imageTargetSrc: Pinus taiwanensis.mind; autoStart: true; uiLoading: true; uiError: true; uiScanning: true;"
+mindar-image="imageTargetSrc: targets.mind; autoStart: true; uiLoading: true; uiError: true; uiScanning: true;"
 color-space="sRGB"
 renderer="colorManagement: true; physicallyCorrectLights: true"
 vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: false"
->
+device-orientation-permission-ui="enabled: false">
 <!-- 資源預載：貼圖 -->
 <a-assets>
 <img id="resultImg" src="card1.jpg" />
@@ -116,8 +115,7 @@ src="#resultImg"
 width="1.2"
 height="0.7"
 position="0 0 0"
-touch-transform
-></a-plane>
+touch-transform></a-plane>
 </a-entity>
 </a-scene>
 <!-- 自訂 A-Frame 組件：觸控縮放、旋轉、雙擊重設 -->
@@ -178,7 +176,10 @@ canvas.addEventListener('touchend', () => {
 if (el.sceneEl.canvas.touches && el.sceneEl.canvas.touches.length < 2) {
 this.prevDistance = null;
 this.prevAngle = null;
-}});}});
+}
+});
+}
+});
 </script>
 
 </body>
