@@ -22,7 +22,7 @@ position: fixed; top: 0; left: 0;
 display: none;
 }
 /* 自訂文字的外層 DIV */
-#custom-text {
+#custom-text-1 {
 display: none; /* 預設隱藏 */
 position: fixed;
 top: 20px; /* 距離頂部 20px */
@@ -34,13 +34,28 @@ padding: 0.5em 1em;
 font-size: 1.5em;
 border-radius: 0.3em;
 z-index: 9999;
-pointer-events: none;
-}
+pointer-events: none;}
+
+#custom-text-2 {
+display: none; /* 預設隱藏 */
+position: fixed;
+top: 20px; /* 距離頂部 20px */
+left: 50%;
+transform: translateX(-50%);
+background: rgba(0, 0, 0, 0.6);
+color: white;
+padding: 0.5em 1em;
+font-size: 1.5em;
+border-radius: 0.3em;
+z-index: 9999;
+pointer-events: none;}
+
 </style>
 </head>
 <body>
 <!-- 1. HTML 裡先放一個自訂的 DIV -->
-<div id="custom-text">台灣二葉松（學名：Pinus taiwanensis）</div>
+<div id="custom-text-1">台灣二葉松（學名：Pinus taiwanensis）</div>
+<div id="custom-text-2">山胡椒</div>
 <!-- 2. 你的 AR 場景 -->
 <!-- 標記副檔名須為.mind -->
 <a-scene
@@ -55,16 +70,8 @@ uiError: no;
 color-space="sRGB"
 renderer="colorManagement: true, physicallyCorrectLights"
 vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: false"
-> <!-- 設定 AR 相機位於原點，並關閉滑鼠/手勢控制（僅使用裝置鏡頭） -->
-<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-<!-- 定義第 0 號圖像目標，綁定 ID 供 JavaScript 監聽掃描事件使用 -->
-<a-entity mindar-image-target="targetIndex: 0" id="target"></a-entity>
+device-orientation-permission-ui="enabled: false"> 
 
-<!-- 1. HTML 裡先放一個自訂的 DIV -->
-<div id="custom-text">山胡椒（學名：Pinus taiwanensis）</div>
-<!-- 2. 你的 AR 場景 -->
-<!-- 標記副檔名須為.mind -->
 <a-scene
 mindar-image="
 imageTargetSrc: Litsea cubeba Persoon.mind;
@@ -77,35 +84,13 @@ uiError: no;
 color-space="sRGB"
 renderer="colorManagement: true, physicallyCorrectLights"
 vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: false"
-> <!-- 設定 AR 相機位於原點，並關閉滑鼠/手勢控制（僅使用裝置鏡頭） -->
-<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-<!-- 定義第 0 號圖像目標，綁定 ID 供 JavaScript 監聽掃描事件使用 -->
-<a-entity mindar-image-target="targetIndex: 0" id="target"></a-entity>
-</a-scene>
+device-orientation-permission-ui="enabled: false"> 
 
-<!-- 1. HTML 裡先放一個自訂的 DIV -->
-<div id="custom-text">黃藤（學名：Calamus quinquesetinervius Burret）</div>
-<!-- 2. 你的 AR 場景 -->
-<!-- 標記副檔名須為.mind -->
-<a-scene
-mindar-image="
-imageTargetSrc: Calamus quinquesetinervius Burret.mind;
-autoStart: true;
-showStats: false;
-uiLoading: no;
-uiScanning: no;
-uiError: no;
-"
-color-space="sRGB"
-renderer="colorManagement: true, physicallyCorrectLights"
-vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: false"
-> <!-- 設定 AR 相機位於原點，並關閉滑鼠/手勢控制（僅使用裝置鏡頭） -->
+<!-- 設定 AR 相機位於原點，並關閉滑鼠/手勢控制（僅使用裝置鏡頭） -->
 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 <!-- 定義第 0 號圖像目標，綁定 ID 供 JavaScript 監聽掃描事件使用 -->
 <a-entity mindar-image-target="targetIndex: 0" id="target"></a-entity>
-</a-scene>
+
 <!-- 3. 用 JS 綁事件：掃到 target 時顯示 DIV，掉失時隱藏 -->
 <script>
 // 1. 等整個頁面（DOM、資源）載入完成後，再執行內部程式
