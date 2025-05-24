@@ -39,15 +39,16 @@ pointer-events: none;
 }
 </style>
 </head>
-範例程式碼(接續)
 <body>
 <!-- 1. HTML 裡先放一個自訂的 DIV -->
-<div id="custom-text">台灣二葉松（Pinus taiwanensi）</div>
+<div id="custom-text"><if imageTargetSrc="imageTargetSrc: Pinus taiwanensis.mind">台灣二葉松（Pinus taiwanensi）</if></div>
+<div id="custom-text"><if imageTargetSrc="imageTargetSrc">山胡椒（Litsea cubeba（Lour.）Persoon）</if></div>
 <!-- 2. 你的 AR 場景 -->
 <!-- 標記副檔名須為.mind -->
 <a-scene
 mindar-image="
 imageTargetSrc: Pinus taiwanensis.mind;
+imageTargetSrc: Litsea cubeba（Lour.）Persoon.mind;
 autoStart: true;
 showStats: false;
 uiLoading: no;
