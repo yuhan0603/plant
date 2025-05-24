@@ -41,12 +41,12 @@ pointer-events: none;
 </head>
 <body>
 <!-- 1. HTML 裡先放一個自訂的 DIV -->
-<if imageTargetSrc="Pinus taiwanensis.mind"><div id="custom-text">台灣二葉松（Pinus taiwanensi）</if></div>
-<if imageTargetSrc="Litsea cubeba（Lour.）Persoon.mind"><div id="custom-text">山胡椒（Litsea cubeba（Lour.）Persoon）</if></div>
+<if imageTargetSrc="Pinus taiwanensis.mind"><div id="1-text">台灣二葉松（Pinus taiwanensi）</if></div>
+<if imageTargetSrc="Litsea cubeba Persoon.mind"><div id="2-text">山胡椒（Litsea cubeba（Lour.）Persoon）</if></div>
 <!-- 2. 你的 AR 場景 -->
 <!-- 標記副檔名須為.mind -->
 <a-scene
-mindar-image="
+mindar-image-1="
 imageTargetSrc: Pinus taiwanensis.mind;
 autoStart: true;
 showStats: false;
@@ -54,8 +54,8 @@ uiLoading: no;
 uiScanning: no;
 uiError: no;
 "
-mindar-image="
-imageTargetSrc: Litsea cubeba（Lour.）Persoon.mind;
+mindar-image-2="
+imageTargetSrc: Litsea cubeba Persoon.mind;
 autoStart: true;
 showStats: false;
 uiLoading: no;
@@ -70,7 +70,9 @@ device-orientation-permission-ui="enabled: false"
 > <!-- 設定 AR 相機位於原點，並關閉滑鼠/手勢控制（僅使用裝置鏡頭） -->
 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 <!-- 定義第 0 號圖像目標，綁定 ID 供 JavaScript 監聽掃描事件使用 -->
-<a-entity mindar-image-target="targetIndex: 0" id="target"></a-entity>
+<a-entity mindar-image-1="targetIndex: 0" id="target"></a-entity>
+</a-scene>
+<a-entity mindar-image-2="targetIndex: 0" id="target"></a-entity>
 </a-scene>
 <!-- 3. 用 JS 綁事件：掃到 target 時顯示 DIV，掉失時隱藏 -->
 <script>
